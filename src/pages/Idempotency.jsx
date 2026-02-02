@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Chart as ChartJS, ArcElement, CategoryScale, LinearScale, BarElement, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js'
 import { Bar, Line } from 'react-chartjs-2'
+import Navigation from '../components/Navigation'
 
 ChartJS.register(ArcElement, CategoryScale, LinearScale, BarElement, PointElement, LineElement, Title, Tooltip, Legend)
 
@@ -157,8 +158,10 @@ export default function Idempotency() {
 
     return (
         <div className="bg-slate-50 min-h-screen">
-            {/* Navigation */}
-            <nav className="bg-white border-b border-slate-200 sticky top-0 z-50">
+            <Navigation />
+
+            {/* Secondary Navigation - Page specific */}
+            <nav className="bg-white border-b border-slate-200 sticky top-16 z-40">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
                         <div className="flex items-center">

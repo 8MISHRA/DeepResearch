@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import { Doughnut } from 'react-chartjs-2'
+import Navigation from '../components/Navigation'
 
 ChartJS.register(ArcElement, Tooltip, Legend)
 
@@ -259,8 +260,8 @@ class ParkingLot {
                                         key={ent.name}
                                         onClick={() => toggleEntity(ent.name, ent.correct)}
                                         className={`px-4 py-2 rounded-full border transition-colors font-medium text-sm ${selectedEntities.includes(ent.name)
-                                                ? 'bg-indigo-600 text-white border-indigo-600'
-                                                : 'border-gray-300 text-gray-600 hover:bg-gray-50'
+                                            ? 'bg-indigo-600 text-white border-indigo-600'
+                                            : 'border-gray-300 text-gray-600 hover:bg-gray-50'
                                             }`}
                                     >
                                         {ent.name}
@@ -479,57 +480,60 @@ class ParkingLot {
     }
 
     return (
-        <div className="h-screen flex overflow-hidden bg-stone-50">
-            {/* Sidebar Navigation */}
-            <aside className="w-64 bg-white border-r border-gray-200 flex-shrink-0 flex-col justify-between hidden md:flex">
-                <div>
-                    <div className="p-6 border-b border-gray-100">
-                        <h1 className="text-xl font-bold text-indigo-700">LLD Architect</h1>
-                        <p className="text-xs text-gray-500 mt-1">Interactive Framework Guide</p>
+        <>
+            <Navigation />
+            <div className="h-screen flex overflow-hidden bg-stone-50">
+                {/* Sidebar Navigation */}
+                <aside className="w-64 bg-white border-r border-gray-200 flex-shrink-0 flex-col justify-between hidden md:flex">
+                    <div>
+                        <div className="p-6 border-b border-gray-100">
+                            <h1 className="text-xl font-bold text-indigo-700">LLD Architect</h1>
+                            <p className="text-xs text-gray-500 mt-1">Interactive Framework Guide</p>
+                        </div>
+                        <nav className="mt-6 space-y-1 px-2">
+                            <a href="#" onClick={() => loadSection('intro')} className={`flex items-center px-4 py-3 text-sm font-medium text-gray-700 rounded-r-lg transition-colors ${currentSection === 'intro' ? 'bg-indigo-100 text-indigo-700 border-l-4 border-indigo-700' : 'hover:bg-gray-50'}`}>
+                                <span className="mr-3">👋</span> Introduction
+                            </a>
+                            <a href="#" onClick={() => loadSection('step1')} className={`flex items-center px-4 py-3 text-sm font-medium text-gray-700 rounded-r-lg transition-colors ${currentSection === 'step1' ? 'bg-indigo-100 text-indigo-700 border-l-4 border-indigo-700' : 'hover:bg-gray-50'}`}>
+                                <span className="mr-3">1️⃣</span> 1. Requirements
+                            </a>
+                            <a href="#" onClick={() => loadSection('step2')} className={`flex items-center px-4 py-3 text-sm font-medium text-gray-700 rounded-r-lg transition-colors ${currentSection === 'step2' ? 'bg-indigo-100 text-indigo-700 border-l-4 border-indigo-700' : 'hover:bg-gray-50'}`}>
+                                <span className="mr-3">2️⃣</span> 2. Entities & Schema
+                            </a>
+                            <a href="#" onClick={() => loadSection('step3')} className={`flex items-center px-4 py-3 text-sm font-medium text-gray-700 rounded-r-lg transition-colors ${currentSection === 'step3' ? 'bg-indigo-100 text-indigo-700 border-l-4 border-indigo-700' : 'hover:bg-gray-50'}`}>
+                                <span className="mr-3">3️⃣</span> 3. Relationships
+                            </a>
+                            <a href="#" onClick={() => loadSection('step4')} className={`flex items-center px-4 py-3 text-sm font-medium text-gray-700 rounded-r-lg transition-colors ${currentSection === 'step4' ? 'bg-indigo-100 text-indigo-700 border-l-4 border-indigo-700' : 'hover:bg-gray-50'}`}>
+                                <span className="mr-3">4️⃣</span> 4. Design Patterns
+                            </a>
+                            <a href="#" onClick={() => loadSection('review')} className={`flex items-center px-4 py-3 text-sm font-medium text-gray-700 rounded-r-lg transition-colors ${currentSection === 'review' ? 'bg-indigo-100 text-indigo-700 border-l-4 border-indigo-700' : 'hover:bg-gray-50'}`}>
+                                <span className="mr-3">🎓</span> Review & Quiz
+                            </a>
+                        </nav>
                     </div>
-                    <nav className="mt-6 space-y-1 px-2">
-                        <a href="#" onClick={() => loadSection('intro')} className={`flex items-center px-4 py-3 text-sm font-medium text-gray-700 rounded-r-lg transition-colors ${currentSection === 'intro' ? 'bg-indigo-100 text-indigo-700 border-l-4 border-indigo-700' : 'hover:bg-gray-50'}`}>
-                            <span className="mr-3">👋</span> Introduction
-                        </a>
-                        <a href="#" onClick={() => loadSection('step1')} className={`flex items-center px-4 py-3 text-sm font-medium text-gray-700 rounded-r-lg transition-colors ${currentSection === 'step1' ? 'bg-indigo-100 text-indigo-700 border-l-4 border-indigo-700' : 'hover:bg-gray-50'}`}>
-                            <span className="mr-3">1️⃣</span> 1. Requirements
-                        </a>
-                        <a href="#" onClick={() => loadSection('step2')} className={`flex items-center px-4 py-3 text-sm font-medium text-gray-700 rounded-r-lg transition-colors ${currentSection === 'step2' ? 'bg-indigo-100 text-indigo-700 border-l-4 border-indigo-700' : 'hover:bg-gray-50'}`}>
-                            <span className="mr-3">2️⃣</span> 2. Entities & Schema
-                        </a>
-                        <a href="#" onClick={() => loadSection('step3')} className={`flex items-center px-4 py-3 text-sm font-medium text-gray-700 rounded-r-lg transition-colors ${currentSection === 'step3' ? 'bg-indigo-100 text-indigo-700 border-l-4 border-indigo-700' : 'hover:bg-gray-50'}`}>
-                            <span className="mr-3">3️⃣</span> 3. Relationships
-                        </a>
-                        <a href="#" onClick={() => loadSection('step4')} className={`flex items-center px-4 py-3 text-sm font-medium text-gray-700 rounded-r-lg transition-colors ${currentSection === 'step4' ? 'bg-indigo-100 text-indigo-700 border-l-4 border-indigo-700' : 'hover:bg-gray-50'}`}>
-                            <span className="mr-3">4️⃣</span> 4. Design Patterns
-                        </a>
-                        <a href="#" onClick={() => loadSection('review')} className={`flex items-center px-4 py-3 text-sm font-medium text-gray-700 rounded-r-lg transition-colors ${currentSection === 'review' ? 'bg-indigo-100 text-indigo-700 border-l-4 border-indigo-700' : 'hover:bg-gray-50'}`}>
-                            <span className="mr-3">🎓</span> Review & Quiz
-                        </a>
-                    </nav>
-                </div>
-                <div className="p-4 bg-gray-50 m-4 rounded-lg border border-gray-200">
-                    <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Current Case Study</h4>
-                    <div className="mt-2 flex items-center">
-                        <span className="text-2xl mr-2">🚗</span>
-                        <div>
-                            <p className="text-sm font-bold text-gray-800">Automated Parking Lot</p>
-                            <p className="text-xs text-gray-500">Difficulty: Beginner</p>
+                    <div className="p-4 bg-gray-50 m-4 rounded-lg border border-gray-200">
+                        <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Current Case Study</h4>
+                        <div className="mt-2 flex items-center">
+                            <span className="text-2xl mr-2">🚗</span>
+                            <div>
+                                <p className="text-sm font-bold text-gray-800">Automated Parking Lot</p>
+                                <p className="text-xs text-gray-500">Difficulty: Beginner</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </aside>
+                </aside>
 
-            {/* Main Content Area */}
-            <main className="flex-1 overflow-y-auto bg-stone-50 relative">
-                <div className="max-w-5xl mx-auto p-6 md:p-10 space-y-8">
-                    {renderContent()}
-                </div>
+                {/* Main Content Area */}
+                <main className="flex-1 overflow-y-auto bg-stone-50 relative">
+                    <div className="max-w-5xl mx-auto p-6 md:p-10 space-y-8">
+                        {renderContent()}
+                    </div>
 
-                <footer className="max-w-5xl mx-auto p-6 text-center text-xs text-gray-400">
-                    <p>Generated Interactive Guide • Low Level Design Framework</p>
-                </footer>
-            </main>
-        </div>
+                    <footer className="max-w-5xl mx-auto p-6 text-center text-xs text-gray-400">
+                        <p>Generated Interactive Guide • Low Level Design Framework</p>
+                    </footer>
+                </main>
+            </div>
+        </>
     )
 }
