@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #334155;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Code block scrollbar */
+.code-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.code-scroll::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+.code-scroll::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 4px;
+}
+
+/* Animations */
+.sim-flash {
+  animation: flash 0.5s;
+}
+
+@keyframes flash {
+  0% { background-color: #ef4444; }
+  100% { background-color: transparent; }
+}
+
+.sim-success {
+  animation: success 0.5s;
+}
+
+@keyframes success {
+  0% { background-color: #22c55e; }
+  100% { background-color: transparent; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Chart Container */
+.chart-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  max-height: 400px;
+  margin: 0 auto;
+}
+
+/* Flow Node Hover Effect */
+.flow-node {
+  transition: all 0.3s ease;
+}
+
+.flow-node:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* UML Card Styling */
+.uml-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.uml-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.uml-header {
+  background: #f3f4f6;
+  padding: 8px;
+  text-align: center;
+  font-weight: 700;
+  border-bottom: 1px solid #e5e7eb;
+  border-radius: 6px 6px 0 0;
+}
+
+.uml-body {
+  padding: 10px;
+  font-size: 0.85rem;
+  color: #4b5563;
+}
+
+/* Choice Chip */
+.choice-chip {
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.choice-chip:hover {
+  background-color: #f3f4f6;
+}
+
+.choice-chip.selected {
+  background-color: #dbeafe;
+  border-color: #3b82f6;
+  color: #1e40af;
+}
